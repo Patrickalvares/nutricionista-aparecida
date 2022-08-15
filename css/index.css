@@ -5,6 +5,7 @@
 body{
 	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 	font-size: 14px;
+	background-color: darkgray;
 }
 
 header{
@@ -55,7 +56,7 @@ table{
 	width: 100%;
 	margin-bottom : .5em;
     table-layout: fixed;
-
+	background-color: orange;
 }
 
 td, th {
@@ -65,9 +66,14 @@ td, th {
 	text-align: center;
 }
 
+td {
+	font-size: 18px;
+}
+
 th{
 	font-weight: bold;
 	background-color: #EEE;
+	font-size: 20px
 }
 
 label{
