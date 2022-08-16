@@ -16,6 +16,14 @@ for (var i = 0; i < pacientes.length; i++) {
 		tdImc.textContent = imcNovo.toFixed(2);
 	}
 	else {
-		tdImc.textContent = "Peso ou altura invalida";
+		tdImc.textContent = "Peso e/ou altura invalida";
+		paciente.classList.add("paciente-invalido");
+		
 	}
 }
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+botaoAdicionar.addEventListener("click", function () {
+	event.preventDefault();
+	console.log("Fui clicado!");
+});
+
