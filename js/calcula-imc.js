@@ -1,3 +1,13 @@
+//Funções
+function calculaImc(peso, altura) {
+	var imc = 0;
+
+	imc = peso / (altura * altura);
+
+	return imc.toFixed(2);
+}
+
+
 var pacientes = document.querySelectorAll(".paciente");
 
 for (var i = 0; i < pacientes.length; i++) {
@@ -12,8 +22,8 @@ for (var i = 0; i < pacientes.length; i++) {
 	var tdImc = paciente.querySelector(".info-imc");
 
 	if (peso > 10 && peso < 400 && altura > 0.20 && altura < 3.00) {
-		var imcNovo = peso / (altura * altura);
-		tdImc.textContent = imcNovo.toFixed(2);
+		var imcNovo = calculaImc(peso, altura);
+		tdImc.textContent = imcNovo;
 	}
 	else {
 		tdImc.textContent = "Peso e/ou altura invalida";
@@ -21,9 +31,3 @@ for (var i = 0; i < pacientes.length; i++) {
 		
 	}
 }
-var botaoAdicionar = document.querySelector("#adicionar-paciente");
-botaoAdicionar.addEventListener("click", function () {
-	event.preventDefault();
-	console.log("Fui clicado!");
-});
-
