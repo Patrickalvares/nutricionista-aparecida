@@ -1,4 +1,4 @@
-// funções
+// funÃ§Ãµes
 function obtemPacienteDoFormualario(form) {
 
     var paciente = {
@@ -31,8 +31,15 @@ function montaTr(paciente) {
 
     return pacienteTr;
 }
+function validaPaciente(paciente){
+    if(validaPeso(paciente.peso)){
+        return true;
+    }else{
+        return false;
+    }
+}
 
-//Adição de novo paciente
+//AdiÃ§Ã£o de novo paciente
 
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 botaoAdicionar.addEventListener("click", function (event) {
@@ -44,6 +51,23 @@ botaoAdicionar.addEventListener("click", function (event) {
 
     var pacienteTr = montaTr(paciente);
 
+    var erros = validaPaciente(paciente);
+
+    if(erros.length > 0){
+        var mensagemErro = document.querySelector("#mensagem-erro");
+        mensagemErro.textContent = erros;
+        return;
+    }
+
+    if(!validaPaciente(paciente)){
+        var erros = [];
+
+        if(!validaPeso(paciente.peso)) erros.push("Peso Ã© Invalido!");
+
+        if(!validaAltura(paciente.altura)) erros.push("Altura Ã© invalida!");
+        
+        return erros;
+    }
     var tabela = document.querySelector("#tabela-pacientes");
 
     tabela.appendChild(pacienteTr);
